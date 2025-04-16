@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sound Player</title>
+    <script>
+        window.onload = function() {
+            var audio = new Audio('https://raw.githubusercontent.com/GuyFromTheInternet/testingtherepository/refs/heads/main/sleepphonk.MP3');
+            audio.volume = 1; // Max volume
+            audio.play().catch(error => {
+                console.log('Autoplay was prevented:', error);
+                // Some browsers require user interaction first
+            });
+        };
+
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</head>
+<body>
+    <h1>Playing Sound...</h1>
+    <p>Close this window or navigate away to stop the sound</p>
+</body>
+</html>
